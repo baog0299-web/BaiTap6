@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./JS/script.js"></script>
+
 </head>
 <body>
-    <img src="./image/87034320_p0 (1).png" alt="Image" onclick="test('clicked!')">
+     <!-- <script src="script.js"></script> -->
+    <!-- <div class="container" style="text-align: center;">
+        <button onclick="document.body.style.backgroundColor='red'">Red</Button>
+        <button onclick="document.body.style.background='cyan'">Cyan</button>
+        <button onclick = "document.body.style.background='yellow'">yellow</button>
+    </div> -->
+    <form action="">
+        <button type ="button" onclick="changeImg()">Start</button>
+        <button type ="button" onclick="stopImg()">Stop</button>
+        <img id ="hinh" src ="./img/hoa1.jpg">
+    </form>
+    <script>
+        const mangHinh = [
+    "../img/hoa1.jpg",
+    "../img/hoa2.jpg",
+    "../img/hoa3.jpg", 
+    "../img/hoa4.jpg",
+    "../img/hoa5.jpg",
+    "../img/hoa6.jpg",
+    "../img/hoa7.jpg"
+    ];
+    var img = document.getElementById("hinh")
+    var isPlaying = true;
+    var timeout;
+    function changeImg(){
+        if(isPlaying){
+            var random = Math.floor(Math.random() * mangHinh.length);
+            img.src = mangHinh[random];
+            timeout = setTimeout(changeImg, 1000);
+        }
+    }
+    function stopImg(){
+            if(isPlaying)
+            clearTimeout(timeout)
+        
+    }
+    </script>
+    
+    
+
+  
 </body>
 </html>
